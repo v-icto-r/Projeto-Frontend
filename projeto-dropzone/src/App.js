@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { parse } from "papaparse";
 import './App.css';
 import logo from "./Logo-oficial-768x236.png";
+//
+import Table from "./components/Table"
+//
 
 export default function App() {
-  const [highlighted, setHighlighted] = React.useState(false);
-  const [contacts, setContacts] = React.useState([]);
+  const [highlighted, setHighlighted] = useState(false);
+  const [contacts, setContacts] = useState([]);
   
   return (
     <div>      
@@ -33,33 +36,19 @@ export default function App() {
             });
         }}
       >
-      <div class="header">
-        <img src={logo} alt='Logo da aplicação' />
-      </div>
 
-      <div className='input'>Solte o csv aqui</div>
+        <div class="header">
+          <img src={logo} alt='Logo da aplicação' />
+        </div>
+
+        <div className='input'>Solte o csv aqui</div>
+
+        <div>
+          <Table contacts={ contacts }/>
+        </div>
         
       </div>      
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Telefone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {contacts.map(contact => (
-              <tr key={contact.id}>
-                <td>{contact.id}</td>
-                <td>{contact.nome}</td>
-                <td>{contact.telefone}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      
     </div>
   );
 }
