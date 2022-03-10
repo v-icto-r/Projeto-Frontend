@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { parse } from "papaparse";
 import './App.css';
 import logo from "./Logo-oficial-768x236.png";
-//
 import Table from "./components/Table"
-//
 
 export default function App() {
   const [highlighted, setHighlighted] = useState(false);
   const [contacts, setContacts] = useState([]);
-  
+//
+  function deleteTask(index) {
+    const itensCopy = Array.from(contacts);
+    itensCopy.splice(index, 1);
+    setContacts(itensCopy);
+  }
+//  
   return (
     <div>      
       <div
@@ -44,7 +48,7 @@ export default function App() {
         <div className='input'>Solte o csv aqui</div>
 
         <div>
-          <Table contacts={ contacts }/>
+          <Table contacts={ contacts } onDelete={ deleteTask }/>
         </div>
         
       </div>      

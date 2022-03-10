@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({ contacts }) {
+function Table({ contacts, onDelete }) {
     return (
         <div>
         <table>
@@ -17,6 +17,7 @@ function Table({ contacts }) {
                 <td>{contact.id}</td>
                 <td>{contact.nome}</td>
                 <td>{contact.telefone}</td>
+                <button onClick={onDelete}>Excluir</button>                
               </tr>
             ))}
           </tbody>
