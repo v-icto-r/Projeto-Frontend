@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({ contacts, onDelete }) {
+function Table({ contacts, deleteTask }) {
     return (
         <div>
         <table>
@@ -12,12 +12,12 @@ function Table({ contacts, onDelete }) {
             </tr>
           </thead>
           <tbody>
-            {contacts.map(contact => (
+            {contacts.map((contact, index) => (
               <tr key={contact.id}>
                 <td>{contact.id}</td>
                 <td>{contact.nome}</td>
                 <td>{contact.telefone}</td>
-                <button onClick={onDelete}>Excluir</button>                
+                <button onClick={() => deleteTask(index)}>Excluir</button>                
               </tr>
             ))}
           </tbody>
