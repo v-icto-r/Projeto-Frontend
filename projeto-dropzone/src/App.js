@@ -48,7 +48,7 @@ export default function App() {
         <div className='input'>Solte o csv aqui</div>
 
         <div>
-          <Table contacts={ contacts } onDelete={ deleteTask }/>
+          <Table contacts={ contacts } deleteTask={ deleteTask }/>
         </div>
         
       </div>      
